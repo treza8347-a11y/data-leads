@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Demande de Landing Page</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f4f7fc;
+margin:0;
+}
+
+.container{
+max-width:600px;
+margin:auto;
+background:white;
+padding:40px;
+margin-top:80px;
+border-radius:10px;
+box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+h2{
+text-align:center;
+}
+
+input,textarea,select{
+width:100%;
+padding:12px;
+margin-top:10px;
+margin-bottom:20px;
+border-radius:6px;
+border:1px solid #ccc;
+}
+
+button{
+background:#3a7bd5;
+color:white;
+border:none;
+padding:15px;
+font-size:16px;
+border-radius:6px;
+cursor:pointer;
+width:100%;
+}
+
+#merci{
+display:none;
+color:green;
+text-align:center;
+font-size:20px;
+margin-top:20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Demandez votre Landing Page Premium</h2>
+
+<form id="leadForm">
+
+<input type="text" name="nom" placeholder="Nom" required>
+
+<input type="email" name="email" placeholder="Email" required>
+
+<input type="tel" name="telephone" placeholder="Téléphone" required>
+
+<select name="secteur">
+
+<option value="">Secteur d'activité</option>
+<option>Coaching</option>
+<option>E-commerce</option>
+<option>Immobilier</option>
+<option>Marketing</option>
+<option>Autre</option>
+
+</select>
+
+<textarea name="description" placeholder="Description de votre projet"></textarea>
+
+<button type="submit">Envoyer la demande</button>
+
+</form>
+
+<p id="merci">Merci ! Votre demande a été envoyée avec succès. Nous vous contacterons rapidement.</p>
+
+</div>
+
+<script>
+
+document.getElementById("leadForm").addEventListener("submit",function(e){
+
+e.preventDefault()
+
+const data=new FormData(this)
+
+fetch("https://hooks.zapier.com/hooks/catch/26684326/u0jv285/",{
+method:"POST",
+body:data
+})
+.then(()=>{
+
+document.getElementById("leadForm").style.display="none"
+document.getElementById("merci").style.display="block"
+
+})
+
+})
+
+</script>
+
+</body>
+</html>
