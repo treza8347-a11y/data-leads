@@ -1,42 +1,50 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
 <meta charset="UTF-8">
-<title>Demande de Landing Page</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demande Landing Page</title>
 
 <style>
 
-body{
-font-family:Arial;
-background:#f4f7fc;
+*{
 margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+background:#f5f7fb;
 }
 
 .container{
 max-width:600px;
 margin:auto;
+margin-top:80px;
 background:white;
 padding:40px;
-margin-top:80px;
 border-radius:10px;
 box-shadow:0 10px 25px rgba(0,0,0,0.1);
 }
 
 h2{
 text-align:center;
+margin-bottom:30px;
 }
 
-input,textarea,select{
+input,select,textarea{
 width:100%;
-padding:12px;
-margin-top:10px;
+padding:14px;
 margin-bottom:20px;
 border-radius:6px;
 border:1px solid #ccc;
+font-size:15px;
 }
 
 button{
-background:#3a7bd5;
+background:#4facfe;
 color:white;
 border:none;
 padding:15px;
@@ -48,10 +56,21 @@ width:100%;
 
 #merci{
 display:none;
-color:green;
 text-align:center;
+color:green;
 font-size:20px;
 margin-top:20px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:600px){
+
+.container{
+margin:30px 15px;
+padding:25px;
+}
+
 }
 
 </style>
@@ -65,7 +84,7 @@ margin-top:20px;
 
 <form id="leadForm">
 
-<input type="text" name="nom" placeholder="Nom" required>
+<input type="text" name="nom" placeholder="Nom complet" required>
 
 <input type="email" name="email" placeholder="Email" required>
 
@@ -82,7 +101,7 @@ margin-top:20px;
 
 </select>
 
-<textarea name="description" placeholder="Description de votre projet"></textarea>
+<textarea name="description" placeholder="Décrivez votre projet"></textarea>
 
 <button type="submit">Envoyer la demande</button>
 
@@ -100,7 +119,7 @@ e.preventDefault()
 
 const data=new FormData(this)
 
-fetch("https://hooks.zapier.com/hooks/catch/26684326/u0jv285/",{
+fetch("https://hooks.zapier.com/hooks/catch/XXXXX",{
 method:"POST",
 body:data
 })
